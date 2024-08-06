@@ -8,7 +8,7 @@ import generateToken from "../../utils/generateWebToken.js";
         // .trim() METHOD RETURNS A NEW STRING INSTEAD OF CHANGING THE ORIGINAL STRING
         req.body.username = req.body.username.trim();
         const {fullName,username,password,confirmPassword,gender}=req.body; //destructuring the request body
-        console.log("Request body: ",req.body);
+        // console.log("Request body: ",req.body);
         if (password !== confirmPassword) {
             return res.status(400).json({error:"Passwords do not match"});
         }
