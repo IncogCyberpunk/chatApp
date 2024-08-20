@@ -36,6 +36,7 @@ app.use("/api/users",usersRoutes);
 app.use(express.static(path.join(__dirname,"frontEnd/dist")))
 // dist folder is created after building the react app using npm run build where all the static files are stored
 
+// this means any url  not matched by the above routes will be served the index.html file
 app.get("*",(req,res)=>{
     // same as path.join(__dirname,"frontEnd/dist/index.html")
     res.sendFile(path.join(__dirname,"frontEnd","dist","index.html"))
