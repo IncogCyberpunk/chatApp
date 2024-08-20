@@ -21,7 +21,6 @@ function useSendMessage() {
             if (data.error) throw new Error(data.error);
             // need to fix that the last message sent doesn't contain the updated time
             setMessages([...messages, data])
-            console.log(messages)
             toast.success("Sent message successfully")
         } catch (error) {
             console.error(error);

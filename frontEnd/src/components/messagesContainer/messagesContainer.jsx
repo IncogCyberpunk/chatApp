@@ -33,7 +33,6 @@ const NoMessageSelected = () => {
  object and then using props.receipient which wouldn't require braces as `props` is an single object*/
 const MessageSelectedContent = ({ receipient }) => {
   const { messages, loading } = useGetMessages();
-  console.log("messages: ", messages);
 
   // custom hook to listen for new messages
   useListenMessages();

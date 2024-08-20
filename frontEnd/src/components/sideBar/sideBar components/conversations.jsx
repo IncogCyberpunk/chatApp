@@ -4,7 +4,7 @@ import getRandomEmoji from "../../../utils/emoji.js";
 
 export default function Conversations(){
     const {loading,conversations} = useGetConversations();
-    console.log(`Converstaions stored in database are:`,conversations);
+    // console.log(`Converstaions stored in database are:`,conversations);
     
     return (
         <>

@@ -1,6 +1,5 @@
 export default function formatTime(isoString) {
     const date = new Date(isoString);
-    console.log("date object",date)
     
     // Get hours and minutes
     const hours = date.getHours();
@@ -12,7 +11,3 @@ export default function formatTime(isoString) {
     
     return `${formattedHours}:${formattedMinutes}`;
 }
-
-const isoString = '2024-08-19T13:20:27';
-const time = formatTime(isoString);
-console.log(time);  // Output: "13:20"
