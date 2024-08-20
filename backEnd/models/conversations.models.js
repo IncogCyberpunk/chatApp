@@ -11,7 +11,7 @@ const conversationSchema= new mongoose.Schema({
             */
             type: mongoose.Schema.Types.ObjectId,
             ref: "User",
-        }
+        },
     ],
 
     /* participants is an array and we are defining the schema for that array inside braces{} */

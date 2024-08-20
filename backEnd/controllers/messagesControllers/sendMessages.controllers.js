@@ -1,5 +1,6 @@
 import Conversation from '../../models/conversations.models.js';
 import Message from '../../models/messages.models.js';
+import { getReceiverSocketId } from '../../socket/socket.js';
 
 
 const sendMessage = async (req, res) => {
@@ -37,15 +38,20 @@ const sendMessage = async (req, res) => {
 
         res.status(201).json(newMessage);
 
-        // SOCKET IO FUNCTIONALITY TO MAKE MESSAGING REALTIME
-
 
         // await conversation.save();
         // await newMessage.save();
 
         // better apporach to use the below instead of manually executing the individual promises
         // this way both of them run in parallel
-        await  Promise.all([conversation.save(), newMessage.save()]);
+        await Promise.all([conversation.save(), newMessage.save()]);
+
+        // SOCKET IO FUNCTIONALITY TO MAKE MESSAGING REALTIME
+        const receiverSocketId = getReceiverSocketId(receiverId);
+        if(receiverSocketId){
+            //  io.to(<socketId>).emit() is used to emit an event to a specific socket(client)
+            io.to(receiverSocketId).emit("newMessage",newMessage);
+        }
 
     } catch (error) {
         console.log("Error in sendMessage controller", error.message);

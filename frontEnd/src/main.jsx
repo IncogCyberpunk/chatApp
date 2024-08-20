@@ -5,6 +5,7 @@ import ReactDOM from "react-dom/client";
 import { Toaster } from "react-hot-toast";
 import App from "./App.jsx";
 import { AuthContextProvider } from "./context/authContext.jsx"; 
+import { SocketContextProvider } from "./context/socketContext.jsx";
 
 /* 
 Ensure that AuthContextProvider wraps the App component in main.jsx. 
@@ -20,8 +21,10 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     AuthContextProvider is setup/rendered ; which makes the useAuthContext to be undefined
      */}
     <AuthContextProvider>
+      <SocketContextProvider>
       <Toaster />
       <App />
+      </SocketContextProvider>
     </AuthContextProvider>
   </React.StrictMode>
 );

@@ -14,7 +14,7 @@ const protectMessageRoute = async (req, res, next) => {
         // jwt.verify() is a method that verifies the token that we have received from the client side with the secret key that we have set in the .env file
 
         const decodedToken = jwt.verify(token, process.env.JWT_SECRET_KEY);
-        console.log(decodedToken);
+        // console.log(decodedToken);
         /* 
         here `uniqueEntryId` is contained in the payload of the token that is received from the
         client's browser during response 
