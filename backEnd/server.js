@@ -3,12 +3,18 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import {app,server} from "./socket/socket.js";
 import cors from "cors"
+import path from "path"
 
 import authRoutes from "./routes/auth.routes.js";
 import messagesRoutes from "./routes/messages.routes.js";
 import usersRoutes from "./routes/users.routes.js";
 
 import connectToMongoDb from "../backEnd/db/connectToMongoDb.js";
+
+// __dirname is a special global variable in Node.js that is automatically defined by Node.js (in CommonJS modules) to represent the absolute path of the directory containing the currently executing file.
+// in ES modules (type: module in package.json) __dirname is not available by default, so we have to define it manually using path.resolve()
+// path.resolve() returns the absolute path of the current working directory
+const __dirname = path.resolve();
 
 dotenv.config();
 
@@ -24,6 +30,16 @@ app.use(cors())
 app.use("/api/auth",authRoutes);
 app.use("/api/messages",messagesRoutes);
 app.use("/api/users",usersRoutes);
+
+
+// providing the path to serve the static files by using path.jon to join the path of root directory with the frontEnd/dist directory
+app.use(express.static(path.join(__dirname,"frontEnd/dist")))
+// dist folder is created after building the react app using npm run build where all the static files are stored
+
+app.get("*",(req,res)=>{
+    // same as path.join(__dirname,"frontEnd/dist/index.html")
+    res.sendFile(path.join(__dirname,"frontEnd","dist","index.html"))
+})
 
 server.listen(PORT,()=>{
     connectToMongoDb();
