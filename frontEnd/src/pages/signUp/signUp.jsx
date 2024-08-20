@@ -27,14 +27,14 @@ export default function SignUp() {
     <>
       <div className="p-4 h-screen flex items-center justify-center ">
         <div className="flex flex-col justify-center items-center minw-96 ">
-          <div className="p-10 w-auto bg-gray-700 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-40 border border-gray-100">
+          <div className="p-10 w-96 bg-gray-700 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-40 ">
             <h1 className="text-3xl font-semibold text-center flex gap-3 text-gray-100 cursor-pointer">
               Sign Up
               <span className=" text-blue-500 ">ChatApp</span>
             </h1>
 
-            <form onSubmit={handleSubmit}>
-              <div>
+            <form onSubmit={handleSubmit} className="w-full">
+              <div >
                 <label htmlFor="" className="label p-2">
                   <span className="label-text text-white text-base">
                     Full Name
@@ -108,14 +108,14 @@ export default function SignUp() {
               <div>
                 <Link
                   to="/login"
-                  className="label text-m mt-2  hover:underline hover:text-white "
+                  className="label text-lg mt-2  hover:underline"
                 >
-                  <span>Already have an account? Log In</span>
+                  <span className="text-blue-200 font-semibold hover:text-white">Already have an account? Log In</span>
                 </Link>
               </div>
               <div>
-                <button className="btn btn-netural btn-block btn-m mt-2 text-white">
-                  Sign Up
+                <button className="btn btn-neutral btn-block btn-sm mt-2 py-6 flex-col text-lg text-white font-bold uppercase">
+                  {loading ? <span className="loading loading-spinner" ></span> : <span >sign up</span>}
                 </button>
               </div>
             </form>

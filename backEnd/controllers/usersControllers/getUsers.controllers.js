@@ -5,7 +5,7 @@ import User from "../../models/users.models.js"
 const getUsers = async (req, res) => {
     try {
         const loggedInUserId = req.user._id;
-
+        
         // we are getting all users except the logged in user
         const filteredUsers = await User.find({ _id: { $ne: loggedInUserId } }).select("-password ");
         // can exclude multiple values too: .select("-password -email");

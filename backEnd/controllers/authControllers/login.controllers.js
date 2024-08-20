@@ -8,7 +8,6 @@ const login = async(req, res) => {
         // renaming variables while destructuring i.e."aliasing"w
         const { username: usernameEntered, password: passwordEntered } = req.body;
 
-        console.log(usernameEntered, passwordEntered);
         // checking if the exsiting user is in the database or not. If yes it returns an object else null
         const existingUser = await User.findOne({username: usernameEntered});
 

@@ -14,6 +14,11 @@ is called in the App component.
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+
+    {/* if the AuthContextProvider is being setup in app.jsx , 
+    acc. to the flow of code useAuthContext will be rendered/called earlier than the 
+    AuthContextProvider is setup/rendered ; which makes the useAuthContext to be undefined
+     */}
     <AuthContextProvider>
       <Toaster />
       <App />
@@ -22,4 +27,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 );
 
 
-
+// 3:22:00 

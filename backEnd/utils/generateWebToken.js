@@ -8,6 +8,7 @@ const generateToken = (uniqueEntryId, res) => {
     The payload carries information that identifies the user and possibly other claims. 
     This allows the server to authenticate the user and manage sessions without maintaining server-side session state.
     */
+   // uniqueEntryId is passed through braces to make it an object (if not passed through braces only it's value will be passed) such that payload contains key-value pair type of information of the uniqueEntryId
     const token = jwt.sign({ uniqueEntryId }, process.env.JWT_SECRET_KEY, {
         expiresIn: "10d",
     });
