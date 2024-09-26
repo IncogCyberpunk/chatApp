@@ -11,6 +11,14 @@ import useListenMessages from "../../hooks/useListenMessages";
 hoisting only for declarations but arrow functions are EXPRESSIONS so they can't be hoisted 
 so even if let and const usef ro arrow functions only their declarations are hoisted but their initializations are not.
 */
+
+const SendMessageText=() =>{
+  return (
+    <p className="text-center  text-gray-300 text-xl font-bold">
+      Send a message to start a conversation
+    </p>
+  );
+}
 const NoMessageSelected = () => {
   const loggedInUserFullName = JSON.parse(
     localStorage.getItem("user-info"),
@@ -62,24 +70,19 @@ const MessageSelectedContent = ({ receipient }) => {
           </span>
         </div>
 
-        <div className="overflow-y-scroll pr-3" style={{ height: "26rem" }}>
-          {!loading &&
-          messages[0] === "No messages found" &&
-          !(messages.length > 1) ? (
-            <p className="text-center text-gray-300 text-xl font-bold">
-              Send a message to start a conversation
-            </p>
-          ) : (
-            messages.map((message, index) => (
-              // provided ref(reference) to the message so that the lastMessageRef ref always referes to the last message rendered.
-              <div key={message._id} ref={lastMessageRef}>
-                <Message
-                  messageContent={message.messageContent}
-                  message={message}
-                />
-              </div>
-            ))
-          )}
+        <div
+          className="overflow-y-scroll pr-3 flex justify-center flex-col"
+          style={{ height: "26rem" }}
+        >
+          {!loading && messages[0] === "No messages found" && !(messages.length > 1) ? <SendMessageText />: messages.map((message, index) => (
+                // provided ref(reference) to the message so that the lastMessageRef ref always referes to the last message rendered.
+                <div key={message._id} ref={lastMessageRef}>
+                  <Message
+                    messageContent={message.messageContent}
+                    message={message}
+                  />
+                </div>
+              ))}
         </div>
 
         <div className="messageInput relative">
