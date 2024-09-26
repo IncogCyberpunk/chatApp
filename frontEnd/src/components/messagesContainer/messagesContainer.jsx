@@ -52,8 +52,8 @@ const MessageSelectedContent = ({ receipient }) => {
 
   return (
     <>
-      <div className="flex flex-col">
-        <div className="bg-slate-600 p-2.5 rounded-xl mb-3">
+      <div className="flex  flex-col">
+        <div className="bg-slate-600 p-2 rounded-xl mb-3">
           <span className="label-text font-bold text-xl text-white-800">
             To:
           </span>
@@ -62,7 +62,7 @@ const MessageSelectedContent = ({ receipient }) => {
           </span>
         </div>
 
-        <div className="overflow-auto" style={{ height: "30rem" }}>
+        <div className="overflow-y-scroll pr-3" style={{ height: "26rem" }}>
           {!loading &&
           messages[0] === "No messages found" &&
           !(messages.length > 1) ? (
@@ -94,11 +94,11 @@ export default function Messages() {
   const { selectedConversation, setSelectedConversation } =
     useConversationStore();
 
-  // const noMessageSelected = true;
+  // const noMessageSelected = false;
 
   return (
     <>
-      <div className="flex flex-col md:min-w-[450px] ml-3 ">
+      <div className="flex flex-col md:min-w-[450px] overflow-clip ml-3 ">
         {!selectedConversation ? (
           <NoMessageSelected />
         ) : (
