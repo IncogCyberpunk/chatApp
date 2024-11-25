@@ -1,5 +1,4 @@
 
-```markdown
 # ChatApp
 
 This is a simple chat application built using MERN Stack 
