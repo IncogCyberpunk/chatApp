@@ -1,9 +1,7 @@
 
 # ChatApp
 
-This is a simple chat application built using MERN Stack 
-
-
+This is a simple chat application built using MERN(MongoDB,Express,React and Node.js) Stack along with realtime features using socket.io functionality
 
 ## Features
 
