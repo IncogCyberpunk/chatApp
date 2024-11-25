@@ -1,7 +1,7 @@
 
 # ChatApp
 
-This is a simple chat application built using MERN(MongoDB,Express,React and Node.js) Stack along with realtime features using socket.io functionality
+This is a simple chat application built using MERN(MongoDB,Express,React and Node.js) Stack along with realtime features using socket.io and industry standard techonologies like tailwindcss , bcryptjs(a npm package) for password encryption and JWT functionality for web tokens which are very useful in creating a secure authentication and authorization web app.
 
 ## Features
 
