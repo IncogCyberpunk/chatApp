@@ -1,6 +1,7 @@
 import {Link} from 'react-router-dom'
 import { useState } from 'react';
 import useLogin from '../../hooks/useLogin';
+import Globe from '../../components/globe';
 
 export default function Login() {
   const [username, setUsername] = useState("");

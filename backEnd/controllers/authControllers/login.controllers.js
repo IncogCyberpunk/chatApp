@@ -13,7 +13,7 @@ const login = async(req, res) => {
 
         /* The optional chaining operator(?.) is used to safely access properties of an object that might be null or undefined 
          so that instead of an error being returned  existingUser?.password will return undefined.
-         The logical OR operator (||) is used to provide a default value if the left-hand side is false.
+         The logical OR operator (||) is used to provide a default value if the left-hand side is false.    
          If existingUser is undefined passwordEntered is compared with an empty string so isPasswordCorrect gets assigned false
          */
         const isPasswordCorrect = await bcrypt.compare(passwordEntered, existingUser?.password || "");

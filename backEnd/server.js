@@ -32,7 +32,7 @@ app.use("/api/messages",messagesRoutes);
 app.use("/api/users",usersRoutes);
 
 
-// providing the path to serve the static files by using path.jon to join the path of root directory with the frontEnd/dist directory
+// providing the path to serve the static files by using path.join to join the path of root directory with the frontEnd/dist directory
 app.use(express.static(path.join(__dirname,"frontEnd/dist")))
 // dist folder is created after building the react app using npm run build where all the static files are stored
 

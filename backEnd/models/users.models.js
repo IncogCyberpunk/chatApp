@@ -32,7 +32,3 @@ const userSchema= new mongoose.Schema({
 },{timestamps: true});
 const User= mongoose.model ("user",userSchema);
 export default User;
-
-//schema is like designs of a house
-// model is like the house itself
-// new model is like a new instance of the model house eg: User is a model so new User is a new house

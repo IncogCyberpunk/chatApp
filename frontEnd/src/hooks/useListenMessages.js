@@ -22,7 +22,7 @@ const useListenMessages = () => {
         
         /* this is a cleanup function that ensures that the event listener attarched to the socket 
         is removed when the component is unmounted so that every time the component is re-rendered
-         , a new event listener is added to the socket instead of prevent and the present event listeners stacking up*/
+         , a new event listener is added to the socket instead of present and to prevent event listeners stacking up*/
         // VERY ESSENTIAL TO DO WHEN ATTACHING EVENTS TO SOCKET (e.g. socket?.on("newMessage"),event as done above)
         return ()=> socket?.off("newMessage");
     },[socket,messages,setMessages])
